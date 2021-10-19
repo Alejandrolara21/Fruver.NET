@@ -1,0 +1,14 @@
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/globales';
+@import 'base/botones';
+@import 'base/footer';
+@import 'layout/formularios';
+
+/* PAGINAS LIBRES */
+
+@import 'layout/paginas_libres/header';
+@import 'layout/paginas_libres/nosotros';
+@import 'layout/paginas_libres/contactar';
+@import 'layout/paginas_libres/video';

@@ -1,0 +1,55 @@
+.header {
+    background-color: $verde_osc;
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        padding: 2rem 0;
+        color: $blanco;
+        .logo {
+            font-family: $fuente_principal;
+            text-transform: uppercase;
+            font-size: 4rem;
+        }
+        a {
+            color: $blanco;
+        }
+    }
+}
+
+.ingreso-registro {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    font-size: 2rem;
+    .navegacion-enlace {
+        color: $blanco;
+        &:last-of-type {
+            padding-left: 2rem;
+        }
+        &:first-of-type {
+            padding-right: 2rem;
+        }
+        &:hover {
+            color: $negro;
+        }
+    }
+    div {
+        color: $blanco;
+    }
+}
+
+.navegacion {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .navegacion-enlace {
+        margin-right: 3rem;
+        &.last-of-type {
+            margin-right: 0;
+        }
+        &:hover {
+            color: $negro;
+        }
+    }
+}

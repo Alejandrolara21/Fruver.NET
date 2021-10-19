@@ -1,0 +1,8 @@
+.nosotros {
+    display: grid;
+    @include grid(3, 2rem);
+    .nosotros-div {
+        text-align: center;
+    }
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,9 @@
+.inicio {
+    @include grid(2, 3rem);
+}
+
+.video-inicio video {
+    max-width: 60rem;
+    max-height: 80rem;
+    border-radius: 2rem;
+}

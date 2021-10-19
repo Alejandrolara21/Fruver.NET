@@ -1,0 +1,19 @@
+.imagen-contacto {
+    background-image: url('../img/fondo4.jpg');
+    background-position: right bottom;
+    background-size: cover;
+    padding: $separacion;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+    h2 {
+        font-size: 4rem;
+        color: $blanco;
+        font-weight: $bold;
+    }
+    p {
+        font-size: 3rem;
+        color: $blanco;
+    }
+}

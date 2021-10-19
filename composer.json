@@ -1,0 +1,12 @@
+{
+    "name": "alejandro/fruteria",
+    "description": "Proyecto de una tienda virtual fruteria",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Model\\": "./models",
+            "MVC\\": "./",
+            "Controllers\\": "./controllers"
+        }
+    }
+}
