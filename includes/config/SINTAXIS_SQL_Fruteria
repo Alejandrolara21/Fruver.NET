@@ -1,0 +1,104 @@
+CREATE DATABASE fruteria_practica;
+
+
+CREATE TABLE administrador(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(60) NOT NULL,
+	apellido VARCHAR(60) NOT NULL,
+	correo VARCHAR(60) NOT NULL,
+	password CHAR(60) NOT NULL,
+	imagen VARCHAR(60),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE estado(
+	id INT(2) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(30) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE cliente(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(60) NOT NULL,
+	apellido VARCHAR(60),
+	correo VARCHAR(60) NOT NULL,
+	password CHAR(60) NOT NULL,
+	imagen VARCHAR(60),
+	telefono VARCHAR(10),
+	direccion VARCHAR(60),
+	id_estado_cli INT(2) NOT NULL,
+	PRIMARY KEY (id),
+	KEY id_estado_cli (id_estado_cli),
+	CONSTRAINT id_estado_cli_fk
+	FOREIGN KEY (id_estado_cli) REFERENCES estado(id)
+);
+
+
+CREATE TABLE tipo_producto(
+	id INT(2) NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(30) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE producto(
+	referencia INT(15) NOT NULL,
+	nombre VARCHAR(60) NOT NULL,
+	fecha DATE NOT NULL,
+	precio DECIMAL(9,2) NOT NULL,
+	descripcion LONGTEXT NOT NULL,
+	cantidad INT(8) NOT NULL,
+	id_estado_prod INT(2) NOT NULL,
+	id_tipo_prod INT(2) NOT NULL,
+	PRIMARY KEY (referencia),
+	KEY id_estado_prod (id_estado_prod),
+	CONSTRAINT id_estado_prod_fk
+	FOREIGN KEY (id_estado_prod) REFERENCES estado(id),
+	KEY id_tipo_prod (id_tipo_prod),
+	CONSTRAINT id_tipo_prod_fk
+	FOREIGN KEY (id_tipo_prod) REFERENCES tipo_producto(id)
+);
+
+CREATE TABLE imagen_producto(
+	referencia INT(15) NOT NULL,
+	nombre VARCHAR(80) NOT NULL,
+	KEY referencia (referencia),
+	CONSTRAINT referencia_fk
+	FOREIGN KEY (referencia) REFERENCES producto(referencia),
+	PRIMARY KEY (referencia,nombre)
+);
+
+
+
+CREATE TABLE venta(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	num_factura INT(12) NOT NULL,
+	id_cliente_vent INT(11) NOT NULL,
+	precio DECIMAL(11,2) NOT NULL,
+	fecha DATE NOT NULL,
+	hora TIME NOT NULL,
+	KEY id_cliente_vent (id_cliente_vent),
+	CONSTRAINT id_cliente_vent_fk
+	FOREIGN KEY (id_cliente_vent) REFERENCES cliente(id),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE venta_producto(
+	id_producto_vent INT(11) NOT NULL,
+	id_venta_prod INT(11) NOT NULL,
+	cantidad INT(8) NOT NULL,
+	KEY id_producto_vent (id_producto_vent),
+	CONSTRAINT id_producto_vent_fk
+	FOREIGN KEY (id_producto_vent) REFERENCES producto(referencia),
+	KEY id_venta_prod (id_venta_prod),
+	CONSTRAINT id_venta_prod_fk
+	FOREIGN KEY (id_venta_prod) REFERENCES venta(id),
+	PRIMARY KEY (id_producto_vent,id_venta_prod)
+);
+
+
+INSERT INTO estado (nombre) VALUES ('activo');
+INSERT INTO estado (nombre) VALUES ('inhabilitado');
+INSERT INTO tipo_producto (nombre) VALUES ('fruta');
+INSERT INTO tipo_producto (nombre) VALUES ('verdura');
+INSERT INTO administrador (correo,password, nombre, apellido) VALUES ('correo@correo.com','$2y$10$UcV3wJixCMnsux9Gld/7sOuiiZzX6I7U1T/F5nTltmR4rKNXI9wYu','Alejandro','Guacaneme')

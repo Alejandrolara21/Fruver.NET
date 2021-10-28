@@ -1,0 +1,75 @@
+.formulario {
+    p {
+        font-size: 1.5rem;
+        color: $verde_osc;
+        margin: 2rem 0 0 0;
+    }
+    legend {
+        font-size: 2.5rem;
+        color: $verde_osc;
+    }
+    label {
+        font-weight: $bold;
+        display: inline;
+        text-transform: uppercase;
+    }
+    input:not([type="submit"]),
+    textarea,
+    select {
+        padding: 1rem 2rem;
+        display: block;
+        width: 100%;
+        background-color: $blanco;
+        border: 1px solid $verde;
+        border-radius: 2rem;
+        margin-bottom: 2rem;
+    }
+    textarea {
+        height: 15rem;
+    }
+    .forma-contacto {
+        max-width: 40rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    input[type="radio"] {
+        display: inline;
+        margin: 0;
+        width: auto;
+    }
+    input[type="submit"] {
+        padding: 1rem 4rem;
+    }
+}
+
+.botones-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imagen-small{
+    width: 20rem;
+    margin: 1rem auto;
+}
+
+.display_flex{
+    display: inline-flex;
+}
+
+.boton_form_imagen{
+    max-width: 3rem;
+    max-height: 3.8rem;
+    position: relative;
+    right: 2rem;
+    padding: 1rem;
+    background-color: $rojo;
+    color: $blanco;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}

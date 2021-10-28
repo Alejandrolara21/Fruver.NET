@@ -83,7 +83,7 @@ class MainModel
         }
     }
 
-    public function actualizarRegistro()
+    public function actualizarRegistro($columna='id')
     {
         // Sanitizar la entrada de datos
         $atributos = $this->sanitizarDatos();
@@ -91,16 +91,16 @@ class MainModel
         foreach ($atributos as $key => $value) {
             $valores[] = "{$key} = '{$value}'";
         }
-        $query = "UPDATE " . static::$tabla . " SET " . join(', ', $valores) . " WHERE id = '" . self::$db->escape_string($this->id) . "' LIMIT 1";
+        $query = "UPDATE " . static::$tabla . " SET " . join(', ', $valores) . " WHERE ${columna} = '" . self::$db->escape_string($this->$columna) . "' LIMIT 1";
         $resultado = self::$db->query($query);
         return $resultado;
     }
 
     // Consultar un registro por id
-    public static function find($id)
+    public static function find($id,$columna = 'id')
     {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE id=${id}";
-        $resultado = self::consultarSQL($query);
+        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna}=${id}";
+        $resultado[] = self::consultarSQL($query);
         return array_shift($resultado);
     }
 
@@ -109,9 +109,7 @@ class MainModel
     public static function all()
     {
         $query = "SELECT * FROM " . static::$tabla;
-
         $resultado = self::consultarSQL($query);
-
         return $resultado;
     }
 
@@ -123,21 +121,18 @@ class MainModel
         return $resultado;
     }
 
-    public function eliminarRegistro()
+    public function eliminarRegistro($columna ='id')
     {
-        $query = "DELETE FROM " . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
-
+        $query = "DELETE FROM " . static::$tabla . " WHERE ${columna} = " . self::$db->escape_string($this->$columna) . " LIMIT 1";
         $resultado = self::$db->query($query);
-        $this->eliminarImagen();
-
         return $resultado;
     }
 
-    public function eliminarImagen()
+    public function eliminarImagen($columna = 'imagen')
     {
-        $existeImagen = file_exists(CARPETA_IMAGENES . $this->imagen);
+        $existeImagen = file_exists(CARPETA_IMAGENES . $this->$columna);
         if ($existeImagen) {
-            unlink(CARPETA_IMAGENES . $this->imagen);
+            unlink(CARPETA_IMAGENES . $this->$columna);
         }
     }
 

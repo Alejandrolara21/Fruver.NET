@@ -1,0 +1,19 @@
+.tabla_producto{
+    width: 100%;
+    margin: 2rem 0;
+    text-align: center;
+    border-collapse:collapse;
+    th{
+        background-color: $gris;
+        border-bottom: 3px solid $negro;
+        font-size: 2.6rem;
+        padding: 1rem 0;
+    }
+    tr{
+        td{
+            border-bottom: 2px solid $negro;
+            font-size: 2rem;
+            padding: 1rem 0;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 const { src, dest, watch, parallel } = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss')
 const sourcemaps = require('gulp-sourcemaps')
@@ -34,7 +34,7 @@ function javascript() {
     return src(paths.js)
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.js')) // final output file name
-        .pipe(terser())
+        //.pipe(terser())
         .pipe(sourcemaps.write('.'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(dest('./public/build/js'))

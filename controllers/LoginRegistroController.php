@@ -5,7 +5,6 @@ namespace Controllers;
 use MVC\Router;
 use Model\Administrador;
 use Model\Cliente;
-use Model\Proveedor;
 
 class LoginRegistroController{
     public static function login(Router $router){
@@ -16,7 +15,6 @@ class LoginRegistroController{
             
             $administrador = new Administrador($_POST);
             $cliente = new Cliente($_POST);
-            $proveedor = new Proveedor($_POST);
             $errores = $administrador -> validar();
 
 
@@ -41,15 +39,6 @@ class LoginRegistroController{
                         $errores = $cliente::getErrores();
                     }
 
-                }elseif($proveedor -> existeUsuario()){
-                    $resultado = $proveedor -> existeUsuario();
-                    $autenticado = $proveedor -> validarContraseña($resultado);
-
-                    if($autenticado){
-                        $proveedor -> autenticar();
-                    }else{
-                        $errores = $proveedor::getErrores();
-                    }
                 }else{
                     $errores = $administrador::getErrores();
                 }

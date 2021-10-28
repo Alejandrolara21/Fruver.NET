@@ -6,13 +6,13 @@ class Administrador extends MainModel{
 
     // Base de datos
     protected static $tabla = 'administrador';
-    protected static $columnaDB = ['id','nombre','apellido','correo','contraseña','imagen'];
+    protected static $columnaDB = ['id','nombre','apellido','correo','password','imagen'];
 
     public $id;
     public $nombre;
     public $apellido;
     public $correo;
-    public $contraseña;
+    public $password;
     public $imagen;
 
     public function __construct($args = [])
@@ -21,7 +21,7 @@ class Administrador extends MainModel{
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
         $this->correo = $args['correo'] ?? '';
-        $this->contraseña = $args['contraseña'] ?? '';
+        $this->password = $args['password'] ?? '';
         $this->imagen = $args['imagen'] ?? '';
     }
 
@@ -30,8 +30,8 @@ class Administrador extends MainModel{
             self::$errores[] = "Debes añadir el correo";
         }
 
-        if (!$this->contraseña) {
-            self::$errores[] = "Debes añadir una contraseña";
+        if (!$this->password) {
+            self::$errores[] = "Debes añadir una password";
         }
 
         return self::$errores;
@@ -51,7 +51,7 @@ class Administrador extends MainModel{
 
     public function validarContraseña($resultado){
         $usuario = $resultado -> fetch_object();
-        $autenticado = password_verify($this -> contraseña, $usuario -> contraseña);
+        $autenticado = password_verify($this -> password, $usuario -> password);
 
         if(!$autenticado){
             self::$errores[] = "La contraseña es incorrecta";

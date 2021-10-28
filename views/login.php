@@ -6,7 +6,7 @@
             <label for="correo">Correo Electronico</label>
             <input name="correo" type="text">
             <label for="password">Constraseña</label>
-            <input name="contraseña" type="password">
+            <input name="password" type="password">
         </fieldset>
         <?php foreach ($errores as $error) { ?>
                 <div data-cy="alerta-login" class="alerta error"><?php echo $error; ?></div>

@@ -1,7 +1,9 @@
 {
     "name": "alejandro/fruteria",
     "description": "Proyecto de una tienda virtual fruteria",
-    "require": {},
+    "require": {
+        "intervention/image": "^2.7"
+    },
     "autoload": {
         "psr-4": {
             "Model\\": "./models",

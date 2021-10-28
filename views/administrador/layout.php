@@ -13,6 +13,8 @@ $auth = $_SESSION['login'] ?? false;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <link rel="shortcut icon" href="../build/img/icono.ico"> 
     <link rel="stylesheet" href="../build/css/app.css">
     <title>Fruver.NET</title>
 </head>
@@ -20,7 +22,7 @@ $auth = $_SESSION['login'] ?? false;
 <body>
     <header class="header">
         <nav class="ingreso-registro contenedor">
-            <a class="navegacion-enlace" href="/registrar">Perfil</a>
+            <a class="navegacion-enlace" href="#">Perfil</a>
             <div>|</div>
             <a class="navegacion-enlace" href="/logout">Cerrar Sesion</a>
         </nav>
@@ -38,10 +40,8 @@ $auth = $_SESSION['login'] ?? false;
             </div>
             <nav class="navegacion">
                 <a class="navegacion-enlace" href="#">Cliente</a>
-                <a class="navegacion-enlace" href="#">Proveedor</a>
-                <a class="navegacion-enlace" href="#">Producto</a>
+                <a class="navegacion-enlace" href="/administrador/productos">Producto</a>
                 <a class="navegacion-enlace" href="#">Ventas</a>
-                <a class="navegacion-enlace" href="#">Solicitudes</a>
             </nav>
         </div>
     </header>
@@ -54,6 +54,8 @@ $auth = $_SESSION['login'] ?? false;
         <p>Todos los derechos reservados</p>
         <p>Proyecto de practica con PHP 8 y SASS</p>
     </footer>
+
+    <script src="../build/js/bundle.min.js"></script>
 
 </body>
 

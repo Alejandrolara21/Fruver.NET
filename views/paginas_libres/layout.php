@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
+    <link rel="shortcut icon" href="../build/img/icono.ico"> 
     <link rel="stylesheet" href="../build/css/app.css">
     <title>Fruver.NET</title>
 </head>

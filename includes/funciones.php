@@ -41,7 +41,7 @@ function sanitizarHtml($html): string
 //Validar tipo de contenido
 function validarTipoContenido($tipo)
 {
-    $tipos = ['vendedor', 'propiedad'];
+    $tipos = ['tipo', 'propiedad'];
 
     return in_array($tipo, $tipos);
 }
@@ -51,22 +51,22 @@ function mostrarNotificacion($codigo)
     $mensaje = '';
     switch ($codigo) {
         case 1:
-            $mensaje = 'Anuncio de propiedad creado correctamente';
+            $mensaje = 'Producto creado correctamente';
             break;
         case 2:
-            $mensaje = 'Anuncio de propiedad actualizado correctamente';
+            $mensaje = ' Producto actualizado correctamente';
             break;
         case 3:
-            $mensaje = 'Anuncio de propiedad eliminado correctamente';
+            $mensaje = 'Producto eliminado correctamente';
             break;
         case 4:
-            $mensaje = 'Vendedor creado correctamente';
+            $mensaje = 'Cliente creado correctamente';
             break;
         case 5:
-            $mensaje = 'Vendedor actualizado correctamente';
+            $mensaje = 'Cliente actualizado correctamente';
             break;
         case 6:
-            $mensaje = 'Vendedor eliminado correctamente';
+            $mensaje = 'Cliente eliminado correctamente';
             break;
         default:
             $mensaje = false;
