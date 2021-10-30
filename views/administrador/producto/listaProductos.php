@@ -36,23 +36,22 @@
                                 <path d="M9 7.07a7.002 7.002 0 0 0 1 13.93a7.002 7.002 0 0 0 6.929 -5.999" />
                             </svg>
                         </a>
-                        <a class="ver_informacion" id="<?php echo ($producto->referencia) ?>"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <p class="ver_informacion" data-producto="<?php echo $producto->referencia; ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <circle cx="12" cy="12" r="9" />
                                 <line x1="12" y1="8" x2="12.01" y2="8" />
                                 <polyline points="11 12 12 12 12 16 13 16" />
                             </svg>
-                        </a>
+                        </p>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
     
-    <div class="">
-        <p class="imageness"><?php echo json_encode($productos);?></p>
-        <?php foreach ($imagenes as $imagen) { ?>
-            <p id="<?php echo $imagen -> referencia; ?>"><?php echo $imagen -> nombre; ?></p>
-        <?php } ?>
+    <div class="hidden">
+        <p class="imagenes-productos"><?php echo json_encode($imagenes);?></p>
+        <p class="datos-productos"><?php echo json_encode($productos);?></p>
     </div>
 </div>
